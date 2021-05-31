@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-05-2021 a las 20:21:26
+-- Tiempo de generación: 31-05-2021 a las 19:11:26
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -40,7 +40,7 @@ CREATE TABLE `administrador` (
 --
 
 INSERT INTO `administrador` (`id`, `aNick`, `aContrasena`, `aMail`, `aTelefono`) VALUES
-(1, 'admin', 'pass', 'admin@gestionincidencias.com', '976555666');
+(1, 'admin', 'pass', 'administrador@empresa.com', '976565251');
 
 -- --------------------------------------------------------
 
@@ -66,18 +66,9 @@ CREATE TABLE `incidencia` (
 --
 
 INSERT INTO `incidencia` (`id`, `idTecnico`, `idUsuario`, `tipo`, `prioridad`, `estado`, `empresa`, `texto`, `imagen`, `fecha`) VALUES
-(27, 7, 35, 'Suministro', 'Alta', 'Resuelta', 'test', 'Sin folios en planta 4', 'img_113358260521.jpg', '2021-05-26 09:33:58'),
-(28, 6, 39, 'Red', 'Alta', 'Resuelta', 'test', 'Incidencia con la red, no conecta a internet.', 'no_image.jpg', '2021-05-26 09:35:04'),
-(29, NULL, 35, 'Hardware', 'Media', 'Nueva', 'test', 'Monitor Nº564 No funciona, llevar para cambiar.', 'no_image.jpg', '2021-05-26 09:36:25'),
-(30, 6, 35, 'Software', 'Baja', 'Parada', 'test', 'Faltan licencias microsoft office en portatiles Nº45 y Nº32', 'img_113809260521.jpg', '2021-05-26 09:38:09'),
-(31, 6, 35, 'Otros', 'Media', 'Asignada', 'test', 'Membresía de programas de edición acabadas, toca renovar.', 'no_image.jpg', '2021-05-26 09:42:18'),
-(32, NULL, 35, 'Software', 'Alta', 'Nueva', 'test', 'No hay programas de contabilidad en PC Nº45', 'no_image.jpg', '2021-05-26 18:11:42'),
-(33, 6, 35, 'Otros', 'Baja', 'Asignada', 'test', 'Faltan alzadores para los monitores y reposapies', 'img_081322260521.PNG', '2021-05-26 18:13:22'),
-(34, NULL, 35, 'Red', 'Media', 'Nueva', 'test', 'No hay señal WiFi en sala de Juntas', 'no_image.jpg', '2021-05-26 18:13:40'),
-(35, 6, 35, 'Hardware', 'Media', 'Asignada', 'test', 'Compra de teclados x5 ', 'img_081449260521.PNG', '2021-05-26 18:14:49'),
-(36, NULL, 35, 'Suministro', 'Alta', 'Nueva', 'test', 'Falta tinta toner Modelo 54UA41X', 'no_image.jpg', '2021-05-26 18:15:36'),
-(37, 6, 35, 'Hardware', 'Media', 'Asignada', 'test', 'Tarjeta de video rota en torre 27', 'no_image.jpg', '2021-05-26 18:16:03'),
-(38, NULL, 35, 'Software', 'Alta', 'Nueva', 'test', 'Sin software de gestión de la calidad', 'no_image.jpg', '2021-05-26 18:16:42');
+(1, 1, 1, 'Hardware', 'Alta', 'Parada', 'Empresa Test', 'Incidencia Alta de Prueba, sin foto', 'no_image.jpg', '2021-05-31 16:54:40'),
+(2, 1, 1, 'Hardware', 'Media', 'Resuelta', 'Empresa Test', 'Incidencia Media de prueba, con foto', 'img_065529310521.PNG', '2021-05-31 16:55:29'),
+(3, 1, 1, 'Red', 'Baja', 'Asignada', 'Empresa Test', 'Incidencia Baja prueba, subiendo archivo no soportado.', 'no_image.jpg', '2021-05-31 16:55:57');
 
 -- --------------------------------------------------------
 
@@ -99,9 +90,7 @@ CREATE TABLE `mensajeria` (
 --
 
 INSERT INTO `mensajeria` (`id`, `idTecnico`, `idUsuario`, `mensaje`, `fecha`, `emisor`) VALUES
-(22, 6, 35, 'Hola test', '2021-05-26 18:17:07', 'usuario'),
-(23, 6, 35, 'Hola usertest', '2021-05-26 18:20:13', 'tecnico'),
-(24, 6, 37, 'Hola Maria', '2021-05-26 18:20:50', 'tecnico');
+(1, 1, 1, 'Hola tecnico prueba, dejo 3 incidencias', '2021-05-31 16:56:34', 'usuario');
 
 -- --------------------------------------------------------
 
@@ -124,8 +113,7 @@ CREATE TABLE `tecnico` (
 --
 
 INSERT INTO `tecnico` (`id`, `tNick`, `tContrasena`, `tNombre`, `tApellidos`, `tMail`, `tTelefono`) VALUES
-(6, 'tectest', '$2y$10$Tbna1DMeDSxo/rtE3mvw1eo6RKaHTUFdNAlrmmuKXLrd3sBtfh/iu', 'Test', 'Pruebas', 'U3MLKFVwAzBcMAFtDEVQeQFlA2FTKwY5Vz0BbA==', 'UzIBYQtqAGdbZAY6ADgHawAw'),
-(7, 'tecedu', '$2y$10$oCxOkzQujQVP0vlQSRDzje9X2dOFXdGCrp0DYO8h2lrBJLMGcUVpu', 'Eduardo', 'Saldaña', 'VHBQZAEyADNbMQJ6D0YDKgRgUzFQKFVqVz1WOw==', 'AGYAaFI3UTcJNwY7DDwHa1Jg');
+(1, 'tecnicotest', '$2y$10$ENaElOQuZDnc0furtaCamu0evsF5fB/dvUIfyqoZwACKepgrNs8Ji', 'Tecnico', 'Test', 'UnYLPwIxAjpbPFM9WjwHGlYjCGxWc1Z+VH9RMglmCGQ=', 'B2FUNQJiAWcAPlZrDzZVOAU1');
 
 -- --------------------------------------------------------
 
@@ -149,11 +137,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `uNick`, `uContrasena`, `uNombre`, `uApellidos`, `uMail`, `uTelefono`, `uEmpresa`) VALUES
-(35, 'usertest', '$2y$10$yFwonr2d.hYzSGVQxHgRi.aS9hhMlV5CU0ipggrlRopU73OxdP2iG', 'Prueba', 'Testes', 'ACQKPlV2UXMOQANrXztRfAZ1UzdVcAc6VwYHYgl6CH1ReFRjBm1TOA==', 'AmsLbVA2AWdeYFZrADgBbVVl', 'test'),
-(36, 'manuelsan', '$2y$10$JJYtc.gmKr/4bi3ogOCoG.EFHcWR2hSQb9AEvzaIHAR4s6BKSkUim', 'Manuel', 'Sanchez', 'Um9UZAY4BCcJYgNiCnABPQdoCElXZFZnA3YCcA1oBXdTNVYzUHoDZlFuV2s=', 'VTMEZAtqVjILN1ZpCDIHaQIw', 'Empresa1'),
-(37, 'marinama', '$2y$10$31eL5k6FWcrVmaooCTRUXOBmg4FMiADf3.35p6OXcJuEYaIUZdTQ.', 'Marina', 'Marcos', 'BzoENAclVmkKalQ4DWlQbAtKB2NQawAsBXIMaQl6B2dTZ1ErAGcEbV5j', 'VzEHZABiBGFaZwM9DjNUPQUw', 'Empresa3'),
-(38, 'carlosos', '$2y$10$qy4yltHNSnKSHh4oiDL1k.NXfyLrNgonSh/OI7wR2kKLpBbKyNx6a', 'Carlos', 'Oscos', 'X2wCMgYkVW9bOgB+CG5TfVARBWFSaVV5AnUMaQh7BmZWY1MpC2wHblFs', 'VjAEYwNlUDILMVBpDjIBaQcz', 'empresa2'),
-(39, 'rubenmar', '$2y$10$X4ULbDRTQfD.RxFqaTlEAOqdewfqJ/kZjkyyu0uHdgPts3qASo052', 'Rubén', 'Marquez', 'U3EFIQc1V2RZOQFhAGgBLgtKAWVRald7VyAEYQx/UDACMFUvUTYAaQc6', 'UDYAZgFmAGZbZVFsXWYDbAQ3', 'Empresa5');
+(1, 'usuariotest', '$2y$10$vs79muwGWU2NZCP8ilBOsePgduuPbtkUjcHqFGySoKC.o1DFSMjR6', 'Usuario', 'Test', 'ACVRc1dyVWIBfQJmXDpWS1AlVzNTdlN7VH9VNgplVDg=', 'VDIFZFExVjAMMgc6CDFTPlBh', 'Empresa Test');
 
 --
 -- Índices para tablas volcadas
@@ -209,25 +193,43 @@ ALTER TABLE `administrador`
 -- AUTO_INCREMENT de la tabla `incidencia`
 --
 ALTER TABLE `incidencia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `mensajeria`
 --
 ALTER TABLE `mensajeria`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tecnico`
 --
 ALTER TABLE `tecnico`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `incidencia`
+--
+ALTER TABLE `incidencia`
+  ADD CONSTRAINT `incidencia_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`id`),
+  ADD CONSTRAINT `incidencia_ibfk_2` FOREIGN KEY (`idTecnico`) REFERENCES `tecnico` (`id`);
+
+--
+-- Filtros para la tabla `mensajeria`
+--
+ALTER TABLE `mensajeria`
+  ADD CONSTRAINT `mensajeria_ibfk_1` FOREIGN KEY (`idTecnico`) REFERENCES `tecnico` (`id`),
+  ADD CONSTRAINT `mensajeria_ibfk_2` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
